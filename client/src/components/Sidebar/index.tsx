@@ -25,10 +25,13 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
+import { useGetProjectsQuery } from "@/state/api";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
   const [showPriority, setShowPriority] = useState(true);
+
+  const { data: projects } = useGetProjectsQuery();
 
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
@@ -104,6 +107,25 @@ const Sidebar = () => {
               <ChevronDown className="h-5 w-5" />
             )}
           </button>
+          {showProjects && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{
+                opacity: showProjects ? 1 : 0,
+                height: showProjects ? "auto" : 0,
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              {projects?.map((project) => (
+                <SidebarLink
+                  key={project.id}
+                  href={`/projects/${project.id}`}
+                  Icon={Briefcase}
+                  label={project.name}
+                />
+              ))}
+            </motion.div>
+          )}
 
           {/* Prioridades */}
           <button
