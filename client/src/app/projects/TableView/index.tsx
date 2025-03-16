@@ -1,4 +1,5 @@
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { format } from "date-fns";
 
 import { useAppSelector } from "@/app/redux";
 import Header from "@/components/Header";
@@ -45,11 +46,19 @@ const columns: GridColDef[] = [
     field: "startDate",
     headerName: "Data Inicial",
     width: 130,
+    renderCell: (params) =>
+      params.value
+        ? format(new Date(params.value), "dd/MM/yyyy HH:mm")
+        : "Não informado",
   },
   {
     field: "dueDate",
     headerName: "Prazo",
     width: 130,
+    renderCell: (params) =>
+      params.value
+        ? format(new Date(params.value), "dd/MM/yyyy HH:mm")
+        : "Não informado",
   },
   {
     field: "author",

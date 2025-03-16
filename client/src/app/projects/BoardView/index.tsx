@@ -226,7 +226,7 @@ const Task = ({ task }: TaskProps) => {
           <div className="flex -space-x-[6px] overflow-hidden">
             {task.assignee && (
               <Image
-                key={task.assignee.id}
+                key={`assignee-${task.assignee.id}`}
                 src={`https://pm-s3-images.s3.us-east-2.amazonaws.com/${task.assignee.profilePictureUrl!}`}
                 alt={task.assignee.username}
                 width={30}
@@ -236,7 +236,7 @@ const Task = ({ task }: TaskProps) => {
             )}
             {task.author && (
               <Image
-                key={task.author.id}
+                key={`author-${task.author.id}`}
                 src={`https://pm-s3-images.s3.us-east-2.amazonaws.com/${task.author.profilePictureUrl!}`}
                 alt={task.author.username}
                 width={30}

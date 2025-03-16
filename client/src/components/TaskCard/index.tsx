@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { Task } from "@/state/api";
 
 type Props = {
@@ -47,14 +48,14 @@ const TaskCard = ({ task }: Props) => {
       <p>
         <strong>Início:</strong>{" "}
         {task.startDate
-          ? format(new Date(task.startDate), "P")
-          : "Nenhuma data de início fornecida"}
+          ? format(new Date(task.startDate), "P", { locale: ptBR })
+          : "Nenhuma data de início informada"}
       </p>
       <p>
         <strong>Prazo:</strong>{" "}
         {task.dueDate
-          ? format(new Date(task.dueDate), "P")
-          : "Nenhum prazo fornecido"}
+          ? format(new Date(task.dueDate), "P", { locale: ptBR })
+          : "Nenhum prazo informado"}
       </p>
       <p>
         <strong>Autor:</strong>{" "}
