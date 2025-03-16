@@ -8,6 +8,7 @@ import morgan from "morgan";
 import projectRoutes from "./routes/project-routes";
 import searchRoutes from "./routes/search-routes";
 import taskRoutes from "./routes/task-routes";
+import teamRoutes from "./routes/team-routes";
 import userRoutes from "./routes/user-routes";
 
 // CONFIGURAÇÕES
@@ -25,6 +26,7 @@ app.use(cors());
 app.use("/projects", projectRoutes);
 app.use("/search", searchRoutes);
 app.use("/tasks", taskRoutes);
+app.use("/teams", teamRoutes);
 app.use("/users", userRoutes);
 
 // SERVIDOR
