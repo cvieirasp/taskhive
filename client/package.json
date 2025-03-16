@@ -19,6 +19,7 @@
     "date-fns-tz": "^3.2.0",
     "dotenv": "^16.4.7",
     "gantt-task-react": "^0.3.9",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.2",
     "next": "15.1.6",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^20",
     "@types/numeral": "^2.0.5",
     "@types/react": "^19",

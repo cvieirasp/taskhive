@@ -6,6 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 // IMPORTAÇÃO DE ROTAS
 import projectRoutes from "./routes/project-routes";
+import searchRoutes from "./routes/search-routes";
 import taskRoutes from "./routes/task-routes";
 
 // CONFIGURAÇÕES
@@ -21,6 +22,7 @@ app.use(cors());
 
 // ROTAS
 app.use("/projects", projectRoutes);
+app.use("/search", searchRoutes);
 app.use("/tasks", taskRoutes);
 
 // SERVIDOR
